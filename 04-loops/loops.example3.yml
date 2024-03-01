@@ -1,0 +1,24 @@
+---
+- name: Loops Example
+  hosts: localhost # for testing purposes
+  gather_facts: false
+
+  vars:
+    # Define a list of software packages
+    software_packages:
+      - curl
+      - wget
+      - git
+  tasks:
+    - name: Iterate over all software packages
+      ansible.builtin.debug:
+        # Loop over all software packages
+        # and print the name of each package
+        msg: "{{ package }}"
+      loop: "{{ software_packages }}"
+      loop_control:
+        # Loop over all software packages
+        # and print the name of each package
+        label: "{{ index }}"
+        index_var: index # Define the variable name to use for the current index
+        loop_var: package # Define the variable name to use for the current item

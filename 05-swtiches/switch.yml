@@ -1,0 +1,9 @@
+---
+- name: Switches
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create a user
+      ansible.builtin.user:
+        name: joe
+        state: present

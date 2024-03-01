@@ -1,0 +1,7 @@
+---
+- ansible.builtin.import_playbook:
+    playbook: "{{ playbook_dir }}/ping.centos.servers.yml"
+    tags: [ 'tag1', 'tag2' ]
+- ansible.builtin.import_playbook:
+    playbook: "{{ playbook_dir }}/ping.windows.servers.yml"
+    tags: [ 'tag3', 'tag4' ]

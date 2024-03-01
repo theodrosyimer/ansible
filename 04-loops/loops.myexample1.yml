@@ -1,0 +1,24 @@
+---
+- name: Loops Example
+  hosts: localhost # Target Host
+  gather_facts: false
+
+  vars:
+    users:
+      - name: user1
+        uid: 1001
+        group: group1
+      - name: user2
+        uid: 1002
+        group: group2
+      - name: user3
+        uid: 1003
+        group: group3
+
+  tasks:
+    - name: Create users
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        group: "{{ item.group }}"
+      loop: "{{ users }}"

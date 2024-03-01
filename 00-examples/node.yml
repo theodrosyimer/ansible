@@ -1,0 +1,14 @@
+---
+- name: Install node
+  ansible.builtin.apt:
+    name: ["nodejs", "npm", "pnpm"]
+  tags:
+    - node
+- name: Install fnm (install script or homebrew?)
+  shell: curl -fsSL https://fnm.vercel.app/install | bash
+  tags:
+    - node
+- name: fnm latest
+  shell: fnm install latest
+  tags:
+    - node

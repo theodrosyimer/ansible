@@ -1,0 +1,10 @@
+---
+- name: Install nginx on web servers
+  hosts: web_servers
+  become: true
+
+  tasks:
+    - name: Install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present

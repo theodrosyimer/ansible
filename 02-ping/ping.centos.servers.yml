@@ -1,0 +1,7 @@
+---
+- name: Ping centos servers
+  hosts: centos_servers
+  gather_facts: false
+  tasks:
+    - name: Ping all centos servers
+      ansible.builtin.ping:

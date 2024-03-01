@@ -1,0 +1,15 @@
+---
+- name: Loops Example
+  hosts: localhost # Target Host
+  gather_facts: false
+
+  tasks:
+    - name: Loop over all software packages
+      ansible.builtin.debug:
+        # Loop over all software packages
+        # and print the name of each package
+        msg: "Package {{ item }}"
+      loop:
+        - curl
+        - wget
+        - git
